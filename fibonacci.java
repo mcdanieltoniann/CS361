@@ -17,25 +17,30 @@ public class fibonacci {
     }
 
     public static int itFib(int n) {
-        if (n <= 1) {
-            return n;
+        if (n < 0 || n > 46) {
+            throw new IllegalArgumentException("n should be between 0 and 46.");
         }
+        else {
+            if (n <= 1) {
+                return n;
+            }
 
-        int a = 0;
-        int b = 1;
+            int a = 0;
+            int b = 1;
 
-        for (int i = 0; i < n; i++) {
-            int temp = a;
-            a = a + b;
-            b = temp;
+            for (int i = 0; i < n; i++) {
+                int temp = a;
+                a = a + b;
+                b = temp;
+            }
+            return a;
         }
-        return a;
     }
 
     public static void main(String[] args) {
         //test
         System.out.println(fib(20));
-        System.out.println(itFib(20));
+        System.out.println(itFib(3));
         System.out.println(fib(5));
         System.out.println(fib(6));
     }
